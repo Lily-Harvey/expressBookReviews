@@ -55,7 +55,6 @@ public_users.get('/isbn/:isbn',function (req, res) {
 public_users.get('/author/:author',function (req, res) {
 
   const get_books_author = new Promise((resolve, reject) => {
-
     let booksbyauthor = [];
     let isbns = Object.keys(books);
     isbns.forEach((isbn) => {
@@ -65,11 +64,8 @@ public_users.get('/author/:author',function (req, res) {
                             "reviews":books[isbn]["reviews"]});
       resolve(res.send(JSON.stringify({booksbyauthor}, null, 4)));
       }
-
-
     });
-    reject(res.send("The mentioned author does not exist "))
-        
+    reject(res.send("The mentioned author does not exist "))     
     });
 
     get_books_author.then(function(){
@@ -102,7 +98,6 @@ public_users.get('/title/:title',function (req, res) {
 public_users.get('/review/:isbn',function (req, res) {
 
   const get_books_title = new Promise((resolve, reject) => {
-
     let booksbytitle = [];
     let isbns = Object.keys(books);
     isbns.forEach((isbn) => {
@@ -112,13 +107,9 @@ public_users.get('/review/:isbn',function (req, res) {
                             "reviews":books[isbn]["reviews"]});
       resolve(res.send(JSON.stringify({booksbytitle}, null, 4)));
       }
-
-
     });
-    reject(res.send("The mentioned title does not exist "))
-        
+    reject(res.send("The mentioned title does not exist "))     
     });
-
     get_books_title.then(function(){
             console.log("Promise is resolved");
    }).catch(function () { 

@@ -7,10 +7,10 @@ let users = [];
 
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
-let userswithsamename = users.filter((user)=>{
+let matchingUsername = users.filter((user)=>{
   return user.username === username
 });
-if(userswithsamename.length > 0){
+if(matchingUsername.length > 0){
   return true;
 } else {
   return false;
